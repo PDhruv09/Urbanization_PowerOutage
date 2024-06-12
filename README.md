@@ -109,11 +109,27 @@ To facilitate the analysis, I binned the urban population percentages into five 
 
 Next, I counted the number of outages for each state within each urban population percentage bin. This allowed me to see the distribution of power outages across different levels of urbanization:
 
-
+POPPCT_URBAN_BIN|	0-20%|	20-40%|	40-60%|	60-80%|	80-100%|
+U.S._STATE      |					
+Alabama         |	    0|	     0|	     6|	     0|	      0|
+Alaska          |	    0|	     0|	     0|	     1|	      0|
+Arizona         |	    0|	     0|	     0|	     0|	     28|
+Arkansas        |	    0|	     0|	    25|	     0|	      0|
+California      |	    0|	     0|	     0|	     0|	    210|
+Colorado        |	    0|	     0|	     0|	     0|	     15|
+Connecticut     |	    0|	     0|	     0|	     0|	     18|
 
 **Average Outage Duration per State and Urban Population Percentage Bin**
 
 In addition to the number of outages, I also calculated the average outage duration for each state within each urban population percentage bin. This analysis helped in understanding if the average duration of outages varies with urbanization levels:
+POPPCT_URBAN_BIN|	  20-40%|	     40-60%|	  60-80%|	    80-100%|
+U.S._STATE      |-----------|--------------|------------|--------------|				
+Alabama         |	0.000000|	1152.800000|	0.000000|	   0.000000|
+Arizona         |	0.000000|	   0.000000|	0.000000|	4552.920000|
+Arkansas        |	0.000000|	1514.360000|	0.000000|	   0.000000|
+California      |	0.000000|	   0.000000|	0.000000|	1666.338384|
+Colorado        |	0.000000|	   0.000000|	0.000000|	 901.071429|
+Connecticut     |	0.000000|	   0.000000|	0.000000|	1278.833333|
 
 <!-- ##### Conclusion
 

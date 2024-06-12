@@ -16,7 +16,6 @@ The original raw DataFrame contains 1534 rows, corresponding to 1534 outages, an
 
 | column                | Description                                                                                                                                  |
 |-----------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| OBS                   | Observation                                                                                                                                  |
 | U.S._STATE            | State the outage occurred in                                                                                                                 |
 | YEAR                  | Year an outage occurred                                                                                                                      |
 | MONTH                 | Month an outage occurred                                                                                                                     |
@@ -38,13 +37,19 @@ The original raw DataFrame contains 1534 rows, corresponding to 1534 outages, an
 ## Data Cleaning and Exploratory Data Analysis
 The first step is to clean the data to make sure it is suitable for effective analysis.
 
-### Cleaning
-1. I start by seting the index to OBS and also dropping irrelevant columns and only keeping the features that I am interested in for analysis. These are:'U.S._STATE', 'YEAR', 'MONTH', 'OUTAGE.START', 'OUTAGE.RESTORATION', 'OUTAGE.DURATION', 'PCT_LAND', 'PCT_WATER_TOT', 'PCT_WATER_INLAND','POPPCT_URBAN', 'POPDEN_URBAN', 'POPDEN_UC', 'POPDEN_RURAL', 'RES.CUSTOMERS', 'COM.CUSTOMERS', 'IND.CUSTOMERS', 'TOTAL.CUSTOMERS'.
+### Cleaning Data
+1. I start by dropping irrelevant columns and only keeping the features that I am interested in for analysis. These are:'U.S._STATE', 'YEAR', 'MONTH', 'OUTAGE.START', 'OUTAGE.RESTORATION', 'OUTAGE.DURATION', 'PCT_LAND', 'PCT_WATER_TOT', 'PCT_WATER_INLAND','POPPCT_URBAN', 'POPDEN_URBAN', 'POPDEN_UC', 'POPDEN_RURAL', 'RES.CUSTOMERS', 'COM.CUSTOMERS', 'IND.CUSTOMERS', 'TOTAL.CUSTOMERS'.
 
 2. Next, I combine the OUTAGE.START.DATE and OUTAGE.START.TIME columns into one Timestamp object in an OUTAGE.START column. I do the same for OUTAGE.RESTORATION.DATE and OUTAGE.RESTORATION.TIME. I then dropped the old columns since all the relevant information is in OUTAGE.START and OUTAGE.RESTORATON.
 
 3. Next, I check my outcomes of OUTAGE.DURATION, MONTH, POPPCT_URBAN, POPDEN_URBAN for values of  NaN, which are likely indicative of missing values. Since major outages wouldn't have a duration of NaN minutes, or the urban poppulation percentage/urban population dencity bing NaN.
 
 The first few rows of this cleaned DataFrame are shown below, with a portion of columns selected.
-
+| U.S._STATE   |   YEAR |   MONTH | OUTAGE.START        | OUTAGE.RESTORATION   |   OUTAGE.DURATION |   PCT_LAND |   PCT_WATER_TOT |   PCT_WATER_INLAND |   POPPCT_URBAN |   POPDEN_URBAN |   POPDEN_UC |   POPDEN_RURAL |   RES.CUSTOMERS |   COM.CUSTOMERS |   IND.CUSTOMERS |   TOTAL.CUSTOMERS |
+|:-------------|-------:|--------:|:--------------------|:---------------------|------------------:|-----------:|----------------:|-------------------:|---------------:|---------------:|------------:|---------------:|----------------:|----------------:|----------------:|------------------:|
+| Minnesota    |   2011 |       7 | 2011-07-01 17:00:00 | 2011-07-03 20:00:00  |              3060 |    91.5927 |         8.40733 |            5.47874 |          73.27 |           2279 |      1700.5 |           18.2 |         2308736 |          276286 |           10673 |           2595696 |
+| Minnesota    |   2014 |       5 | 2014-05-11 18:38:00 | 2014-05-11 18:39:00  |                 1 |    91.5927 |         8.40733 |            5.47874 |          73.27 |           2279 |      1700.5 |           18.2 |         2345860 |          284978 |            9898 |           2640737 |
+| Minnesota    |   2010 |      10 | 2010-10-26 20:00:00 | 2010-10-28 22:00:00  |              3000 |    91.5927 |         8.40733 |            5.47874 |          73.27 |           2279 |      1700.5 |           18.2 |         2300291 |          276463 |           10150 |           2586905 |
+| Minnesota    |   2012 |       6 | 2012-06-19 04:30:00 | 2012-06-20 23:00:00  |              2550 |    91.5927 |         8.40733 |            5.47874 |          73.27 |           2279 |      1700.5 |           18.2 |         2317336 |          278466 |           11010 |           2606813 |
+| Minnesota    |   2015 |       7 | 2015-07-18 02:00:00 | 2015-07-19 07:00:00  |              1740 |    91.5927 |         8.40733 |            5.47874 |          73.27 |           2279 |      1700.5 |           18.2 |         2374674 |  
 

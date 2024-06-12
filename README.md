@@ -45,6 +45,7 @@ The first step is to clean the data to make sure it is suitable for effective an
 3. Next, I check my outcomes of OUTAGE.DURATION, MONTH, POPPCT_URBAN, POPDEN_URBAN for values of  NaN, which are likely indicative of missing values. Since major outages wouldn't have a duration of NaN minutes, or the urban poppulation percentage/urban population dencity bing NaN.
 
 The first few rows of this cleaned DataFrame are shown below, with a portion of columns selected.
+
 | U.S._STATE   |   YEAR |   MONTH | OUTAGE.START        | OUTAGE.RESTORATION   |   OUTAGE.DURATION |   PCT_LAND |   PCT_WATER_TOT |   PCT_WATER_INLAND |   POPPCT_URBAN |   POPDEN_URBAN |   POPDEN_UC |   POPDEN_RURAL |   RES.CUSTOMERS |   COM.CUSTOMERS |   IND.CUSTOMERS |   TOTAL.CUSTOMERS |
 |:-------------|-------:|--------:|:--------------------|:---------------------|------------------:|-----------:|----------------:|-------------------:|---------------:|---------------:|------------:|---------------:|----------------:|----------------:|----------------:|------------------:|
 | Minnesota    |   2011 |       7 | 2011-07-01 17:00:00 | 2011-07-03 20:00:00  |              3060 |    91.5927 |         8.40733 |            5.47874 |          73.27 |           2279 |      1700.5 |           18.2 |         2308736 |          276286 |           10673 |           2595696 |

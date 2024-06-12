@@ -1,5 +1,5 @@
 remote_theme: pages-themes/architect@v0.2.0
 plugins:
 - jekyll-remote-theme # add this line to the plugins list if you already have one
-title: [Does Urbanization effect Power Outage ?]
-description: [Welcome to the project website for DSC 80 Practice and Application of Data Science at the University of California, San Diego (UCSD). This site serves as a comprehensive platform to showcase our work, assignments, and projects undertaken as part of the DSC 80 course.]
+title: Does Urbanization effect Power Outage ?
+description: Welcome to the project website for DSC 80 Practice and Application of Data Science at the University of California, San Diego (UCSD). This site serves as a comprehensive platform to showcase our work, assignments, and projects undertaken as part of the DSC 80 course.

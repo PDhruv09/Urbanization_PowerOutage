@@ -122,6 +122,7 @@ Connecticut     |	    0|	     0|	     0|	     0|	     18|
 **Average Outage Duration per State and Urban Population Percentage Bin**
 
 In addition to the number of outages, I also calculated the average outage duration for each state within each urban population percentage bin. This analysis helped in understanding if the average duration of outages varies with urbanization levels:
+
 POPPCT_URBAN_BIN|	  20-40%|	     40-60%|	  60-80%|	    80-100%|
 U.S._STATE      |-----------|--------------|------------|--------------|				
 Alabama         |	0.000000|	1152.800000|	0.000000|	   0.000000|
@@ -136,3 +137,33 @@ Connecticut     |	0.000000|	   0.000000|	0.000000|	1278.833333|
 By grouping and aggregating the data, I was able to gain insights into how power outages are distributed across different states and urbanization levels. The analysis revealed that states with higher urban population percentages tend to experience a greater number of outages. However, the average outage duration does not show a clear pattern across urbanization bins, indicating that other factors might be influencing the duration of power outages.
 
 These findings provide a deeper understanding of the relationship between urbanization and power outage characteristics, which can help in identifying areas that need more attention for improving grid reliability and resilience. -->
+
+## Assessment of Missingness
+### NMAR Analysis
+
+In my dataset, one of the columns that is likely NMAR (Not Missing At Random) is OUTAGE.DURATION. The missingness in this column might be due to the data collection process where some outages were not fully recorded in terms of duration. This missing data could be because certain companies or states did not report the duration of outages accurately.
+
+To further investigate if OUTAGE.DURATION is MAR (Missing At Random), additional data could be collected about the reporting entities for each outage. By analyzing the dependency of missingness on the specific reporting entity, we could determine if the missingness is related to these entities.
+
+**Missingness Dependency**
+To test the dependency of missingness in OUTAGE.DURATION, I performed permutation tests against two columns: POPPCT_URBAN (urban population percentage) and RES.CUSTOMERS (number of residential customers). The hypothesis testing framework for these tests is as follows:
+
+Urban Population Percentage
+Null Hypothesis: The mean missingness of OUTAGE.DURATION is the same across different values of POPPCT_URBAN.
+
+Alternate Hypothesis: The mean missingness of OUTAGE.DURATION is different across different values of POPPCT_URBAN.
+
+<iframe src="assets/plot5_1.html" width="800" height="600" frameborder="0"></iframe>
+
+In the permutation test, I found an observed statistic of mean missingness, which was compared against the distribution of mean missingness obtained through permutations. The resulting histogram shows the distribution of the mean missingness, with a red line indicating the observed statistic. The calculated p-value indicates whether the observed mean missingness is significantly different from the permuted values.
+
+Residential Customers
+Null Hypothesis: The mean missingness of OUTAGE.DURATION is the same across different values of RES.CUSTOMERS.
+
+Alternate Hypothesis: The mean missingness of OUTAGE.DURATION is different across different values of RES.CUSTOMERS.
+
+<iframe src="assets/plot5_2.html" width="800" height="600" frameborder="0"></iframe>
+
+Similarly, I performed the permutation test for RES.CUSTOMERS and plotted the distribution of the mean missingness with a red line indicating the observed statistic. The p-value from this test helps in understanding if the missingness of OUTAGE.DURATION is dependent on the number of residential customers.
+
+From these tests, I can conclude the nature of the missingness of OUTAGE.DURATION and its dependency on other columns in the dataset.

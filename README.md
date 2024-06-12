@@ -16,6 +16,7 @@ The original raw DataFrame contains 1534 rows, corresponding to 1534 outages, an
 
 | column                | Description                                                                                                                                  |
 |-----------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| OBS                   | Observation                                                                                                                                  |
 | U.S._STATE            | State the outage occurred in                                                                                                                 |
 | YEAR                  | Year an outage occurred                                                                                                                      |
 | MONTH                 | Month an outage occurred                                                                                                                     |
@@ -33,4 +34,17 @@ The original raw DataFrame contains 1534 rows, corresponding to 1534 outages, an
 | COM.CUSTOMERS         | Annual number of customers served in the commercial electricity sector of the U.S. state                                                     |
 | IND.CUSTOMERS         | Annual number of customers served in the industrial electricity sector of the U.S. state                                                     |
 | TOTAL.CUSTOMERS       | Annual number of total customers served in the U.S. state                                                                                    |
+
+## Data Cleaning and Exploratory Data Analysis
+The first step is to clean the data to make sure it is suitable for effective analysis.
+
+### Cleaning
+1. I start by seting the index to OBS and also dropping irrelevant columns and only keeping the features that I am interested in for analysis. These are:'U.S._STATE', 'YEAR', 'MONTH', 'OUTAGE.START', 'OUTAGE.RESTORATION', 'OUTAGE.DURATION', 'PCT_LAND', 'PCT_WATER_TOT', 'PCT_WATER_INLAND','POPPCT_URBAN', 'POPDEN_URBAN', 'POPDEN_UC', 'POPDEN_RURAL', 'RES.CUSTOMERS', 'COM.CUSTOMERS', 'IND.CUSTOMERS', 'TOTAL.CUSTOMERS'.
+
+2. Next, I combine the OUTAGE.START.DATE and OUTAGE.START.TIME columns into one Timestamp object in an OUTAGE.START column. I do the same for OUTAGE.RESTORATION.DATE and OUTAGE.RESTORATION.TIME. I then dropped the old columns since all the relevant information is in OUTAGE.START and OUTAGE.RESTORATON.
+
+3. Next, I check my outcomes of OUTAGE.DURATION, MONTH, POPPCT_URBAN, POPDEN_URBAN for values of  NaN, which are likely indicative of missing values. Since major outages wouldn't have a duration of NaN minutes, or the urban poppulation percentage/urban population dencity bing NaN.
+
+The first few rows of this cleaned DataFrame are shown below, with a portion of columns selected.
+
 

@@ -1,5 +1,6 @@
 # Does Urbanization effect Power Outage ?
 **By:- Dhruv Patel**
+Project for Dsc 80 at UCSD
 
 ## Introduction
 In this project, I examined a data set of major power outages in the U.S. from January 2000 to July 2016. These major outages are defined by the Department of Energy to have impacted at least 50,000 customers, or causing an unplanned energy demand loss of at least 300 MegaWatts.This dataset was accessed from Purdue University’s Laboratory for Advancing Sustainable Critical Infrastructure, at https://engineering.purdue.edu/LASCI/research-data/outages.

@@ -54,3 +54,24 @@ The first few rows of this cleaned DataFrame are shown below, with a portion of 
 | Minnesota    |   2012 |       6 | 2012-06-19 04:30:00 | 2012-06-20 23:00:00  |              2550 |    91.5927 |         8.40733 |            5.47874 |          73.27 |           2279 |      1700.5 |           18.2 |         2317336 |          278466 |           11010 |           2606813 |
 | Minnesota    |   2015 |       7 | 2015-07-18 02:00:00 | 2015-07-19 07:00:00  |              1740 |    91.5927 |         8.40733 |            5.47874 |          73.27 |           2279 |      1700.5 |           18.2 |         2374674 |  
 
+### Exploratory Data Analysis
+#### Univariate Analysis
+In my exploratory data analysis, I first perform univariate analysis to examine the distribution of single variables.
+
+First, I wanted to see how the number of outages has changed over time.
+
+<iframe src="assets/plot1.html" width="800" height="600" frameborder="0" ></iframe> 
+I also wanted to see the distribution of major causes of power outages. 
+<iframe src="assets/plot2.html" width="800" height="600" frameborder="0" ></iframe> 
+<!-- Then, I wanted to see the distribution of the number of outages by each U.S. state. 
+<iframe src="assets/map1.html" width="800" height="600" frameborder="0" ></iframe> -->
+
+<!-- #### Bivariate Analysis
+I conducted many bivariate analyses, and the most significant results are shown below.
+
+I examined the relationship between Outage Duration and Customers Affected, two metrics of the severity of a power outage. I expected there to be a positive correlation, since major outages likely affect a lot of customers and have a long duration, but there was variability within this. There are many outages that affected a lot of customers but were not as long, indicating that Customers Affected might be a better metric for measuring outage severity.
+
+<iframe src="assets/duration_cust.html" width="800" height="600" frameborder="0" ></iframe>
+The plot below shows the relation between outage duration and cause category. It shows that some of the outages with the longest duration were due to a fuel supply emergency.
+
+<iframe src="assets/duration_cause.html" width="800" height="600" frameborder="0" ></iframe> -->

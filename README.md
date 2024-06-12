@@ -149,21 +149,45 @@ To further investigate if OUTAGE.DURATION is MAR (Missing At Random), additional
 To test the dependency of missingness in OUTAGE.DURATION, I performed permutation tests against two columns: POPPCT_URBAN (urban population percentage) and RES.CUSTOMERS (number of residential customers). The hypothesis testing framework for these tests is as follows:
 
 Urban Population Percentage
-Null Hypothesis: The mean missingness of OUTAGE.DURATION is the same across different values of POPPCT_URBAN.
+Null Hypothesis: The mean missingness of OUTAGE.DURATION is independent of POPPCT_URBAN.
 
-Alternate Hypothesis: The mean missingness of OUTAGE.DURATION is different across different values of POPPCT_URBAN.
+Alternate Hypothesis: The mean missingness of OUTAGE.DURATION depends on POPPCT_URBAN.
 
 <iframe src="assets/plot5_1.html" width="800" height="600" frameborder="0"></iframe>
 
 In the permutation test, I found an observed statistic of mean missingness, which was compared against the distribution of mean missingness obtained through permutations. The resulting histogram shows the distribution of the mean missingness, with a red line indicating the observed statistic. The calculated p-value indicates whether the observed mean missingness is significantly different from the permuted values.
 
 Residential Customers
-Null Hypothesis: The mean missingness of OUTAGE.DURATION is the same across different values of RES.CUSTOMERS.
+Null Hypothesis: The mean missingness of OUTAGE.DURATION is independent of RES.CUSTOMERS.
 
-Alternate Hypothesis: The mean missingness of OUTAGE.DURATION is different across different values of RES.CUSTOMERS.
+Alternate Hypothesis: The mean missingness of OUTAGE.DURATION depends on RES.CUSTOMERS.
 
 <iframe src="assets/plot5_2.html" width="800" height="600" frameborder="0"></iframe>
 
 Similarly, I performed the permutation test for RES.CUSTOMERS and plotted the distribution of the mean missingness with a red line indicating the observed statistic. The p-value from this test helps in understanding if the missingness of OUTAGE.DURATION is dependent on the number of residential customers.
 
 From these tests, I can conclude the nature of the missingness of OUTAGE.DURATION and its dependency on other columns in the dataset.
+
+## Hypothesis Testing
+
+I will be testing whether the duration of outages is significantly different for states with high urbanization levels compared to those with low urbanization levels. The relevant columns for this test are `OUTAGE.DURATION` and `POPPCT_URBAN`. I will use the median value of `POPPCT_URBAN` to categorize states into high and low urbanization levels.
+
+**Null Hypothesis**: On average, the duration of outages for states with high urbanization levels is the same as the duration of outages for states with low urbanization levels.
+
+**Alternate Hypothesis**: On average, the duration of outages for states with high urbanization levels is different from the duration of outages for states with low urbanization levels.
+
+**Test Statistic**: Difference in means. Specifically, mean outage duration for high urbanization - mean outage duration for low urbanization.
+
+To test this hypothesis, I performed a permutation test with 10,000 simulations to generate an empirical distribution of the test statistic under the null hypothesis. The results are shown below.
+
+### Permutation Test Results
+
+<iframe src="assets/plot6.html" width="800" height="600" frameborder="0"></iframe>
+
+The observed difference in mean duration of outages between high and low urbanization levels is plotted against the empirical distribution of differences obtained from the permutation tests. The red line indicates the observed difference.
+
+### P-value Interpretation
+
+The p-value obtained from the permutation test is 0.308. With a standard significance level of 0.05, we fail to reject the null hypothesis. This suggests that there is no statistically significant difference in the mean duration of outages between states with high and low urbanization levels.
+
+**Conclusion**: Based on the p-value of 0.308, we conclude that there is no significant difference in the duration of power outages between states with high and low urbanization levels.

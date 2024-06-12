@@ -56,22 +56,67 @@ The first few rows of this cleaned DataFrame are shown below, with a portion of 
 
 ### Exploratory Data Analysis
 #### Univariate Analysis
-In my exploratory data analysis, I first perform univariate analysis to examine the distribution of single variables.
+In this section, I conducted a univariate analysis to explore individual variables related to power outages in the dataset. The focus was on understanding the distribution of urban population percentages and the number of power outages across different states.
 
-First, I wanted to see how the number of outages has changed over time.
+Population Percentage of Urban Areas for Every State
+First, I examined the distribution of the population percentage of urban areas for each state. This analysis helps in understanding how urbanized each state is, which can be a crucial factor in analyzing power outage patterns.
 
 <iframe src="assets/plot1.html" width="800" height="600" frameborder="0" ></iframe> 
-I also wanted to see the distribution of major causes of power outages. 
-<iframe src="assets/plot2.html" width="800" height="600" frameborder="0" ></iframe> 
-<!-- Then, I wanted to see the distribution of the number of outages by each U.S. state. 
-<iframe src="assets/map1.html" width="800" height="600" frameborder="0" ></iframe> -->
 
-<!-- #### Bivariate Analysis
-I conducted many bivariate analyses, and the most significant results are shown below.
+This bar plot shows the urban population percentage for each state. From the plot, we can observe the variability in urbanization levels across states, with some states having a high percentage of urban areas, while others have much lower percentages. This information sets the stage for further analysis of how urbanization impacts power outages.
 
-I examined the relationship between Outage Duration and Customers Affected, two metrics of the severity of a power outage. I expected there to be a positive correlation, since major outages likely affect a lot of customers and have a long duration, but there was variability within this. There are many outages that affected a lot of customers but were not as long, indicating that Customers Affected might be a better metric for measuring outage severity.
+Distribution of the Number of Power Outages for Every State
+Next, I analyzed the distribution of the number of power outages for each state. This provides insight into which states experience more frequent outages, which can be crucial for understanding the overall power grid reliability in different regions.
 
-<iframe src="assets/duration_cust.html" width="800" height="600" frameborder="0" ></iframe>
-The plot below shows the relation between outage duration and cause category. It shows that some of the outages with the longest duration were due to a fuel supply emergency.
+<iframe src="assets/plot2.html" width="800" height="600" frameborder="0" ></iframe>
 
-<iframe src="assets/duration_cause.html" width="800" height="600" frameborder="0" ></iframe> -->
+This bar plot displays the number of power outages for each state. The plot highlights which states have a higher frequency of outages. Understanding the distribution of outages helps in identifying patterns and regions that might require more attention and resources to improve power grid stability.
+
+<!-- ##### Conclusion
+Through this univariate analysis, I gained a better understanding of the distribution of urban population percentages and the frequency of power outages across different states. The analysis revealed significant variability in urbanization levels and outage frequencies, providing a foundational understanding for more complex analyses in the subsequent sections. This information is critical for identifying trends and factors that may influence power outages, guiding future investigations and potential interventions to improve grid reliability. -->
+
+
+#### Bivariate Analysis
+In this section, I examined the relationship between urban population percentage and two metrics related to power outages: the number of outages and the average outage duration. My goal was to understand how urbanization levels might influence both the frequency and severity of power outages across different states.
+
+**Relationship between Urban Population Percentage and Number of Outages**
+First, I explored the relationship between the urban population percentage of each state and the number of power outages that occurred. My hypothesis was that states with higher urbanization levels might experience more frequent outages due to higher population densities and infrastructure demands.
+
+<iframe src="assets/plot3.html" width="800" height="600" frameborder="0" ></iframe>
+
+This plot shows each state's urban population percentage on the x-axis and the number of outages on the y-axis. While there is some variability, we can observe a general trend where states with higher urban populations tend to experience more power outages.
+
+**Relationship between Urban Population Percentage and Average Outage Duration**
+Next, I analyzed the relationship between the urban population percentage and the average duration of power outages. My hypothesis here was that urbanized areas, due to better infrastructure and more efficient response systems, might have shorter outage durations compared to less urbanized areas.
+
+<iframe src="assets/plot4.html" width="800" height="600" frameborder="0" ></iframe>
+
+This plot displays the urban population percentage on the x-axis and the average outage duration on the y-axis. The results indicate that there is no clear correlation between urbanization levels and outage duration. States with both high and low urban populations show a wide range of average outage durations, suggesting that factors other than urbanization might play a more significant role in determining outage duration.
+
+<!-- ##### Conclusion
+Through these bivariate analyses, I found that while there is a tendency for more urbanized states to experience a higher number of outages, urban population percentage does not seem to significantly affect the average duration of these outages. This indicates that urbanization might impact the frequency of power outages more than their severity. Further investigation into other variables and their interactions is needed to develop a comprehensive understanding of the factors influencing power outage patterns. -->
+
+
+#### Grouping and Aggregates
+
+In this section, I performed grouping and aggregation to understand how power outages vary across different states and urban population percentages. The goal was to investigate the relationship between urbanization and power outage characteristics.
+
+**Grouping by State and Urban Population Percentage Bin**
+
+To facilitate the analysis, I binned the urban population percentages into five categories: 0-20%, 20-40%, 40-60%, 60-80%, and 80-100%. This allowed me to group states based on their urbanization levels and perform aggregate calculations within these groups.
+
+**Number of Outages per State and Urban Population Percentage Bin**
+
+Next, I counted the number of outages for each state within each urban population percentage bin. This allowed me to see the distribution of power outages across different levels of urbanization:
+
+
+
+**Average Outage Duration per State and Urban Population Percentage Bin**
+
+In addition to the number of outages, I also calculated the average outage duration for each state within each urban population percentage bin. This analysis helped in understanding if the average duration of outages varies with urbanization levels:
+
+<!-- ##### Conclusion
+
+By grouping and aggregating the data, I was able to gain insights into how power outages are distributed across different states and urbanization levels. The analysis revealed that states with higher urban population percentages tend to experience a greater number of outages. However, the average outage duration does not show a clear pattern across urbanization bins, indicating that other factors might be influencing the duration of power outages.
+
+These findings provide a deeper understanding of the relationship between urbanization and power outage characteristics, which can help in identifying areas that need more attention for improving grid reliability and resilience. -->

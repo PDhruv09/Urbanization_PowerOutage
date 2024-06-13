@@ -1,5 +1,5 @@
 # Does Urbanization effect Power Outage ?
-**By:- Dhruv Patel**
+## **By:- Dhruv Patel**
 
 Project for Dsc 80 at UCSD
 
@@ -95,6 +95,7 @@ Arkansas        |	    0|	     0|	    25|	     0|	      0|
 California      |	    0|	     0|	     0|	     0|	    210|
 Colorado        |	    0|	     0|	     0|	     0|	     15|
 Connecticut     |	    0|	     0|	     0|	     0|	     18|
+
 
 POPPCT_URBAN_BIN|	  20-40%|	     40-60%|	  60-80%|	    80-100%|
 U.S._STATE      |-----------|--------------|------------|--------------|				
@@ -222,6 +223,10 @@ The best model identified by GridSearchCV incorporates:
 **min_samples_split:** 10
 **min_samples_leaf:** 2
 **Preprocessing:** Standard scaling of numeric features and one-hot encoding of categorical feature MONTH.
+
+Here is the graph for all five folds of the GridSearchCV
+
+<iframe src="assets/plot8.html" width="800" height="600" frameborder="0" ></iframe>
 
 ### Model Performance
 **Mean Absolute Error (MAE):** The optimized model's MAE on the test set is approximately 2732.72 hours.

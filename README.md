@@ -4,7 +4,7 @@
 Project for Dsc 80 at UCSD
 
 ## Introduction
-Welcome to my project on major power outages in the United States from January 2000 to July 2016. This dataset, sourced from Purdue University’s Laboratory for Advancing Sustainable Critical Infrastructure, provides detailed insights into outages that affected at least 50,000 customers or caused an unplanned energy demand loss of at least 300 MegaWatts.
+Welcome to my project on major power outages in the United States from January 2000 to July 2016. This dataset, sourced from Purdue University’s Laboratory for Advancing Sustainable Critical Infrastructure, provides detailed insights into outages that affected at least 50,000 customers or caused an unplanned energy demand loss of at least 300 MegaWatts. This dataset was accessed from Purdue University's Laboratory for Advancing Sustainable Critical Infrastructure, at https://engineering.purdue.edu/LASCI/research-data/outages.
 
 Why Care About This Dataset?
 

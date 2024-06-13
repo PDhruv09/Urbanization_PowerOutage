@@ -263,3 +263,34 @@ By incorporating these improvements, the final model achieves a lower MAE, indic
 
 ### Conclusion
 This final model significantly improves prediction accuracy compared to the baseline, achieving a lower MAE. It incorporates a RandomForestRegressor with optimized hyperparameters, leveraging features that capture urbanization, customer diversity, and seasonal factors affecting power outages. Further enhancements could involve additional feature engineering or exploring different ensemble methods to improve predictive performance.
+
+## Fairness Analysis
+Groups Defined
+
+Group X: High Urbanization
+Group Y: Low Urbanization
+We defined the groups based on the median value of POPPCT_URBAN (Percentage of Urban Population). Group X includes test data points where the urban population percentage is greater than or equal to the median, while Group Y includes those where the percentage is less than the median.
+
+Evaluation Metric
+Mean Absolute Error (MAE): This metric measures the average magnitude of errors in a set of predictions, without considering their direction. It is the average over the test sample of the absolute differences between prediction and actual observation where all individual differences have equal weight.
+
+Hypotheses
+Null Hypothesis (H0): The model's MAE is the same for both high and low urbanization levels. Any observed difference is due to random chance.
+Alternative Hypothesis (H1): The model's MAE is different for high and low urbanization levels.
+
+Test Statistic and Significance Level
+Test Statistic: The difference in MAE between Group X and Group Y.
+Significance Level (α): 0.01
+
+Permutation Test Results
+We conducted a permutation test with 1000 trials to determine if the observed difference in MAE between high and low urbanization levels is statistically significant.
+
+Results
+MAE for Group X (High Urbanization): 2651.86
+MAE for Group Y (Low Urbanization): 2824.05
+Observed Difference in MAE: -172.19
+P-value: 0.9130
+
+Conclusion
+Fail to reject the null hypothesis: The p-value is 0.9130, which is greater than the significance level of 0.01. This indicates that there is no evidence to suggest that the model's performance differs significantly between high and low urbanization levels.
+This fairness analysis demonstrates that the model's accuracy, as measured by the Mean Absolute Error, does not significantly differ across different levels of urbanization. This ensures that the model is equitable and performs consistently, regardless of urbanization levels in the test data.

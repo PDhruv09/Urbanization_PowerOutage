@@ -190,4 +190,76 @@ The observed difference in mean duration of outages between high and low urbaniz
 
 The p-value obtained from the permutation test is 0.308. With a standard significance level of 0.05, we fail to reject the null hypothesis. This suggests that there is no statistically significant difference in the mean duration of outages between states with high and low urbanization levels.
 
-**Conclusion**: Based on the p-value of 0.308, we conclude that there is no significant difference in the duration of power outages between states with high and low urbanization levels.
+**Conclusion:** Based on the p-value of 0.308, we conclude that there is no significant difference in the duration of power outages between states with high and low urbanization levels.
+
+## Framing a Prediction Problem
+My model will try to predict the effect of a power outage depending on the urbanization level. This will be a binary classification because we are only focusing on duration of power outage and urbanization level.
+
+The metric I am using the evaluate my model is the Mean Absolute Error (MAE), because we are predtiing the outage duration and than comparing it with the actual value of the duration. In which case the MAE will tell us how far, on average, your predictions deviate from the actual outage durations. Lower MAE values indicate better model performance, as they reflect smaller prediction errors.
+
+At the time of prediction, we would know the 'POPPCT_URBAN', 'POPDEN_URBAN', 'RES.CUSTOMERS', 'COM.CUSTOMERS', 'IND.CUSTOMERS', 'TOTAL.CUSTOMERS', 'MONTH','Urban_Density_Ratio', and 'Customer_Diversity_Index'. This information will allow us to predict the outage duration closer to the actual outage duration.
+
+## Baseline Model
+My baseline model predicts the duration of power outages (OUTAGE.DURATION) based on urbanization-related features (POPPCT_URBAN and POPDEN_URBAN). Here's how the model is implemented and evaluated:
+
+Features Used
+1. **POPPCT_URBAN:** Percentage of urban population in the state.
+2. **POPDEN_URBAN:** Urban population density in the state.
+
+### Target
+OUTAGE.DURATION: Duration of the power outage in hours.
+
+### Model Performance
+**Mean Absolute Error (MAE):** The model's MAE on the test set is approximately 3237.25 hours.
+### Conclusion
+This baseline model provides an initial estimation of power outage durations based on urbanization-related features. Further model enhancements can be explored by incorporating additional relevant features or employing more advanced regression techniques to improve prediction accuracy.
+
+## Final Model
+My final model predicts the duration of power outages (OUTAGE.DURATION) using a RandomForestRegressor. Here's how the model is implemented and evaluated:
+
+### Features Used
+1. POPPCT_URBAN: Percentage of urban population in the state.
+2. POPDEN_URBAN: Urban population density in the state.
+3. RES.CUSTOMERS: Number of residential customers.
+4. COM.CUSTOMERS: Number of commercial customers.
+5. IND.CUSTOMERS: Number of industrial customers.
+6. TOTAL.CUSTOMERS: Total number of customers served.
+7. MONTH: Month of the outage.
+
+### New Features Created
+1. Urban_Density_Ratio: Ratio of urban population density to total customers.
+2. Customer_Diversity_Index: Standard deviation of residential, commercial, and industrial customers.
+
+### Components Explained
+1. StandardScaler: This transformer standardizes numeric features by removing the mean and scaling to unit variance. It ensures that each feature contributes equally to the model fitting process without being biased by the magnitude of the feature values.
+
+2. OneHotEncoder: This encoder converts categorical features (like MONTH in this case) into binary vectors where each category becomes a column with either a 0 or 1. This is necessary because many machine learning algorithms cannot directly handle categorical data and require numerical inputs.
+
+3. ColumnTransformer: This class allows for applying different preprocessing steps to different columns in the dataset. Here, it applies StandardScaler to numeric features and OneHotEncoder to categorical features (MONTH).
+
+4. GridSearchCV: This technique performs an exhaustive search over a specified parameter grid to find the best parameters for a model. It uses cross-validation to evaluate each combination of parameters and selects the one that gives the best performance according to a specified scoring metric (neg_mean_absolute_error in this case).
+
+### Best Model from GridSearchCV
+The best model identified by GridSearchCV incorporates:
+
+**RandomForestRegressor with hyperparameters:**
+**n_estimators:** 200
+**max_depth:** None (allowing the tree to expand until all leaves are pure or contain less than min_samples_split samples)
+**min_samples_split:** 10
+**min_samples_leaf:** 2
+**Preprocessing:** Standard scaling of numeric features and one-hot encoding of categorical feature MONTH.
+
+### Model Performance
+**Mean Absolute Error (MAE):** The optimized model's MAE on the test set is approximately 2732.72 hours.
+
+### Improvement in MAE
+The improvement in Mean Absolute Error (MAE) from the baseline model to the final model can be attributed to several factors:
+
+Feature Engineering: Introducing new features (Urban_Density_Ratio and Customer_Diversity_Index) that capture additional information about urbanization and customer base diversity.
+Optimized Model Selection: Using GridSearchCV to tune hyperparameters of the RandomForestRegressor, resulting in a model that better fits the data and reduces prediction errors.
+Enhanced Preprocessing: Applying StandardScaler and OneHotEncoder through ColumnTransformer ensures that the model interprets features correctly and efficiently handles both numeric and categorical data.
+Model Complexity: The final model, being a RandomForestRegressor, can capture non-linear relationships between features and target, which might have been missed by the baseline linear regression model.
+By incorporating these improvements, the final model achieves a lower MAE, indicating more accurate predictions of power outage durations compared to the baseline model.
+
+### Conclusion
+This final model significantly improves prediction accuracy compared to the baseline, achieving a lower MAE. It incorporates a RandomForestRegressor with optimized hyperparameters, leveraging features that capture urbanization, customer diversity, and seasonal factors affecting power outages. Further enhancements could involve additional feature engineering or exploring different ensemble methods to improve predictive performance.

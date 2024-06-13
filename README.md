@@ -291,6 +291,9 @@ MAE for Group Y (Low Urbanization): 2824.05
 Observed Difference in MAE: -172.19
 P-value: 0.9130
 
+The figure below shows the distribution of the statistic.
+<iframe src="assets/plot7.html" width="800" height="600" frameborder="0" ></iframe>
+
 Conclusion
 Fail to reject the null hypothesis: The p-value is 0.9130, which is greater than the significance level of 0.01. This indicates that there is no evidence to suggest that the model's performance differs significantly between high and low urbanization levels.
 This fairness analysis demonstrates that the model's accuracy, as measured by the Mean Absolute Error, does not significantly differ across different levels of urbanization. This ensures that the model is equitable and performs consistently, regardless of urbanization levels in the test data.

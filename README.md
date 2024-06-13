@@ -86,6 +86,8 @@ Additionally, I calculated the average outage duration for each state within eac
 
 Here are what the tables look like
 
+Table for the Population percentage of Urban Area and the State for number of power outages
+
 POPPCT_URBAN_BIN|	0-20%|	20-40%|	40-60%|	60-80%|	80-100%|
 U.S._STATE      |					
 Alabama         |	    0|	     0|	     6|	     0|	      0|
@@ -96,6 +98,7 @@ California      |	    0|	     0|	     0|	     0|	    210|
 Colorado        |	    0|	     0|	     0|	     0|	     15|
 Connecticut     |	    0|	     0|	     0|	     0|	     18|
 
+Table for the Population percentage of Urban Area and the State for duration of power outages
 
 POPPCT_URBAN_BIN|	  20-40%|	     40-60%|	  60-80%|	    80-100%|
 U.S._STATE      |-----------|--------------|------------|--------------|				
